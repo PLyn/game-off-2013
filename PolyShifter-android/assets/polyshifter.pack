@@ -1,0 +1,75 @@
+
+polyshifter.png
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+circle
+  rotate: false
+  xy: 188, 32
+  size: 30, 30
+  orig: 30, 30
+  offset: 0, 0
+  index: -1
+hero
+  rotate: false
+  xy: 2, 14
+  size: 48, 48
+  orig: 48, 48
+  offset: 0, 0
+  index: -1
+legend
+  rotate: false
+  xy: 52, 30
+  size: 32, 32
+  orig: 32, 32
+  offset: 0, 0
+  index: -1
+pentagon
+  rotate: false
+  xy: 188, 2
+  size: 28, 28
+  orig: 28, 28
+  offset: 0, 0
+  index: -1
+rare
+  rotate: false
+  xy: 86, 30
+  size: 32, 32
+  orig: 32, 32
+  offset: 0, 0
+  index: -1
+score
+  rotate: false
+  xy: 120, 30
+  size: 32, 32
+  orig: 32, 32
+  offset: 0, 0
+  index: -1
+shield
+  rotate: false
+  xy: 154, 30
+  size: 32, 32
+  orig: 32, 32
+  offset: 0, 0
+  index: -1
+square
+  rotate: false
+  xy: 220, 32
+  size: 30, 30
+  orig: 30, 30
+  offset: 0, 0
+  index: -1
+star
+  rotate: false
+  xy: 218, 2
+  size: 28, 28
+  orig: 28, 28
+  offset: 0, 0
+  index: -1
+triangle
+  rotate: false
+  xy: 248, 2
+  size: 28, 28
+  orig: 28, 28
+  offset: 0, 0
+  index: -1

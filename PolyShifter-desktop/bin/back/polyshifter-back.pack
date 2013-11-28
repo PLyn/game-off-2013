@@ -1,0 +1,47 @@
+
+polyshifter-back.png
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+end-back
+  rotate: false
+  xy: 2, 516
+  size: 800, 480
+  orig: 800, 480
+  offset: 0, 0
+  index: -1
+hud-back
+  rotate: false
+  xy: 804, 444
+  size: 800, 70
+  orig: 800, 70
+  offset: 0, 0
+  index: -1
+ingame-back
+  rotate: false
+  xy: 2, 34
+  size: 800, 480
+  orig: 800, 480
+  offset: 0, 0
+  index: -1
+intro-back
+  rotate: false
+  xy: 804, 516
+  size: 800, 480
+  orig: 800, 480
+  offset: 0, 0
+  index: -1
+start
+  rotate: false
+  xy: 2, 2
+  size: 400, 30
+  orig: 400, 30
+  offset: 0, 0
+  index: -1
+title
+  rotate: false
+  xy: 1606, 896
+  size: 400, 100
+  orig: 400, 100
+  offset: 0, 0
+  index: -1
