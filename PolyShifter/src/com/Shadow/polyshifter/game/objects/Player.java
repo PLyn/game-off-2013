@@ -15,6 +15,12 @@ public class Player extends AbstractGameObject{
 	
 	//Particle
 	public ParticleEffect dustParticles = new ParticleEffect();
+	public ParticleEffect up = new ParticleEffect();
+	public ParticleEffect down = new ParticleEffect();
+	public ParticleEffect left = new ParticleEffect();
+	public ParticleEffect right = new ParticleEffect();
+	
+	
 	
 	public boolean isTriangle = false;
 	public boolean isSquare = false;
@@ -29,6 +35,8 @@ public class Player extends AbstractGameObject{
 	public float doubleScoreTimeLeft = 0.0f;
 	public float immuneTimeLeft = 0.0f;
 	boolean hasImmune = false;
+	
+	public int direction;
 	
 	
 	public Player(){
@@ -45,7 +53,10 @@ public class Player extends AbstractGameObject{
 		setShape(1);
 		
 		dustParticles.load(Gdx.files.internal("particle/particle.p"), Gdx.files.internal("particle"));
-		
+		up.load(Gdx.files.internal("particle/up.p"), Gdx.files.internal("particle"));
+		down.load(Gdx.files.internal("particle/down.p"), Gdx.files.internal("particle"));
+		left.load(Gdx.files.internal("particle/left.p"), Gdx.files.internal("particle"));
+		right.load(Gdx.files.internal("particle/right.p"), Gdx.files.internal("particle"));
 	}
 
 	public void setShape(int shapenumber){
@@ -103,6 +114,22 @@ public class Player extends AbstractGameObject{
 	@Override
 	public void update(float deltaTime)
 	{
+		if(direction == 0){
+			rotation = 0;
+			down.update(deltaTime);
+		}
+		else if(direction == 1){
+			rotation = 90;
+			left.update(deltaTime);
+		}
+		else if(direction == 2){
+			rotation = 180;
+			right.update(deltaTime);
+		}
+		else if(direction == 3){
+			rotation = 270;
+			up.update(deltaTime);
+		}
 		velocity = Constants.PLAYER_SPEED;
 		bounds.set(position.x, position.y, size.x, size.y);
 		
@@ -122,6 +149,7 @@ public class Player extends AbstractGameObject{
 		}
 		
 		dustParticles.update(deltaTime);
+		
 	}
 	
 	@Override
@@ -134,5 +162,14 @@ public class Player extends AbstractGameObject{
 				rotation, false);
 		dustParticles.setPosition(position.x, position.y);
 		dustParticles.draw(batch);
+		up.setPosition(position.x, position.y - 10);
+		up.draw(batch);
+		down.setPosition(position.x, position.y - 10);
+		down.draw(batch);
+		left.setPosition(position.x, position.y - 10);
+		left.draw(batch);
+		right.setPosition(position.x, position.y - 10);
+		right.draw(batch);
+		
 	}
 }
