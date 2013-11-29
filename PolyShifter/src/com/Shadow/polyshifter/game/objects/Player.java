@@ -15,11 +15,11 @@ public class Player extends AbstractGameObject{
 	
 	//Particle
 	public ParticleEffect dustParticles = new ParticleEffect();
-	public ParticleEffect up = new ParticleEffect();
+	/*public ParticleEffect up = new ParticleEffect();
 	public ParticleEffect down = new ParticleEffect();
 	public ParticleEffect left = new ParticleEffect();
-	public ParticleEffect right = new ParticleEffect();
-	
+	public ParticleEffect right = new ParticleEffect();*/
+
 	public int lives = 3;
 	
 	public boolean isTriangle = false;
@@ -53,10 +53,10 @@ public class Player extends AbstractGameObject{
 		setShape(1);
 		
 		dustParticles.load(Gdx.files.internal("particle/particle.p"), Gdx.files.internal("particle"));
-		up.load(Gdx.files.internal("particle/up.p"), Gdx.files.internal("particle"));
+		/*up.load(Gdx.files.internal("particle/up.p"), Gdx.files.internal("particle"));
 		down.load(Gdx.files.internal("particle/down.p"), Gdx.files.internal("particle"));
 		left.load(Gdx.files.internal("particle/left.p"), Gdx.files.internal("particle"));
-		right.load(Gdx.files.internal("particle/right.p"), Gdx.files.internal("particle"));
+		right.load(Gdx.files.internal("particle/right.p"), Gdx.files.internal("particle"));*/
 		
 		score = Assets.instance.score.scoreAsset;
 		immune = Assets.instance.immune.immuneAsset;
@@ -155,10 +155,10 @@ public class Player extends AbstractGameObject{
 		}
 		
 		dustParticles.update(deltaTime);
-		left.update(deltaTime);
+		/*left.update(deltaTime);
 		down.update(deltaTime);
 		right.update(deltaTime);
-		up.update(deltaTime);
+		up.update(deltaTime);*/
 	}
 	
 	@Override
@@ -171,10 +171,10 @@ public class Player extends AbstractGameObject{
 				rotation, false);
 		dustParticles.setPosition(position.x, position.y);
 		dustParticles.draw(batch);
-		up.setPosition(position.x + 10, position.y - 2);
+		/*up.setPosition(position.x + 10, position.y - 2);
 		left.setPosition(position.x + 25, position.y + 10);
 		down.setPosition(position.x + 10, position.y + 25);
-		right.setPosition(position.x - 2, position.y + 10);
+		right.setPosition(position.x - 2, position.y + 10);*/
 		
 		if(direction == 3){
 			if(hasPowerUp(0)){
@@ -183,7 +183,7 @@ public class Player extends AbstractGameObject{
 			if(hasPowerUp(1)){
 				batch.draw(immune, position.x + 20, position.y + 10, 10, 10);
 			}
-		up.draw(batch);
+		//up.draw(batch);
 		}
 		if(direction == 0){
 			if(hasPowerUp(0)){
@@ -192,7 +192,7 @@ public class Player extends AbstractGameObject{
 			if(hasPowerUp(1)){
 				batch.draw(immune, position.x + 7, position.y + 20, 10, 10);
 			}
-			left.draw(batch);
+			//left.draw(batch);
 		}
 		if(direction == 1){
 			if(hasPowerUp(0)){
@@ -201,7 +201,7 @@ public class Player extends AbstractGameObject{
 			if(hasPowerUp(1)){
 				batch.draw(immune, position.x +20, position.y , 10, 10);
 			}
-		down.draw(batch);
+		//down.draw(batch);
 		
 		}
 		if(direction == 2){
@@ -211,7 +211,7 @@ public class Player extends AbstractGameObject{
 			if(hasPowerUp(1)){
 				batch.draw(immune, position.x + 7, position.y - 5 , 10, 10);
 			}
-		right.draw(batch);
+		//right.draw(batch);
 		}
 		
 		

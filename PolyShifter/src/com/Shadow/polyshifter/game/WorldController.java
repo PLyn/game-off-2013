@@ -105,22 +105,22 @@ public class WorldController  extends InputAdapter{
 		//player movement
 		if(Gdx.input.isKeyPressed(Keys.UP)){
 			stage.player.direction = 3;
-			stage.player.up.start();
+			//stage.player.up.start();
 			stage.player.position.y += stage.player.velocity;
 		}
 		if(Gdx.input.isKeyPressed(Keys.DOWN)){
 			stage.player.direction = 1;
-			stage.player.down.start();
+			//stage.player.down.start();
 			stage.player.position.y -= stage.player.velocity;
 		}
 		if(Gdx.input.isKeyPressed(Keys.LEFT)){
 			stage.player.direction = 0;
-			stage.player.left.start();
+			//stage.player.left.start();
 			stage.player.position.x -= stage.player.velocity;
 		}
 		if(Gdx.input.isKeyPressed(Keys.RIGHT)){
 			stage.player.direction = 2;
-			stage.player.right.start();
+			//stage.player.right.start();
 			stage.player.position.x += stage.player.velocity;
 			}
 		if(Gdx.input.isKeyPressed(Keys.ESCAPE)){
