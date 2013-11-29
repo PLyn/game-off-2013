@@ -1,5 +1,7 @@
 package com.Shadow.polyshifter.game;
 
+import com.badlogic.gdx.Audio;
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.assets.AssetDescriptor;
 import com.badlogic.gdx.assets.AssetErrorListener;
 import com.badlogic.gdx.assets.AssetManager;
@@ -30,6 +32,7 @@ public class Assets implements Disposable, AssetErrorListener {
 	public AssetImmune immune;
 	public AssetBack backgrounds;
 	public AssetEffect effect; 
+	//public AssetSound sound;
 	// singleton: prevent instantiation from other classes
 	private Assets () {
 	}
@@ -66,6 +69,14 @@ public class Assets implements Disposable, AssetErrorListener {
 		backgrounds = new AssetBack(atlas_back);
 		effect = new AssetEffect(atlas);
 	}
+	/*public class AssetSound{
+		public final AtlasRegion sfx;
+		public final AtlasRegion bgm;
+		public AssetSound(TextureAtlas atlas){
+			sfx = Gdx.files.internal("sound/sfx.mp3");
+			bgm = Gdx.files.internal("sound/bgm.mp3");
+		}
+	}*/
 	public class AssetEffect{
 		public final AtlasRegion scoreEffectAsset;
 		public final AtlasRegion immuneEffectAsset;

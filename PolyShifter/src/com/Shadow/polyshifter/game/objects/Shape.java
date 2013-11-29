@@ -37,7 +37,7 @@ public class Shape extends AbstractGameObject{
 	public static int doubleChance = 0;
 	public static int immuneChance = 0;
 	
-	public static int[] chances = {50, 50, 50, 50, 50, 15, 5, 200, 200};
+	public static int[] chances = {50, 50, 50, 50, 50, 15, 5, 20, 20};
 	
 	public static int probabilityChange = 200;
 	
@@ -187,55 +187,55 @@ public class Shape extends AbstractGameObject{
 			shapes = Assets.instance.triangle.triangleAsset;
 			currentShape(0);	
 			//set speed of shape
-			shapeSpeed = Constants.TRIANGLE_SPEED; Constants.CIRCLE_SPEED += 0.4f; 
+			shapeSpeed = Constants.TRIANGLE_SPEED; 
 		}
 		else if(shapenumber > triangleChance && shapenumber <= squareChance){
 			shapes = Assets.instance.square.squareAsset;
 			currentShape(1);	
 			//set speed of shape
-			shapeSpeed = Constants.SQUARE_SPEED; Constants.TRIANGLE_SPEED += 0.4f;
+			shapeSpeed = Constants.SQUARE_SPEED; 
 			}
 		else if(shapenumber > squareChance && shapenumber <= pentagonChance){
 			shapes = Assets.instance.pentagon.pentagonAsset;
 			currentShape(2);
 			//set speed of shape
-			shapeSpeed = Constants.PENTAGON_SPEED; Constants.SQUARE_SPEED += 0.4f;
+			shapeSpeed = Constants.PENTAGON_SPEED; 
 		}
 		else if(shapenumber > pentagonChance && shapenumber <= starChance){
 			shapes = Assets.instance.star.starAsset;
 			currentShape(3);
 			//set speed of shape
-			shapeSpeed = Constants.STAR_SPEED; Constants.PENTAGON_SPEED += 0.4f;
+			shapeSpeed = Constants.STAR_SPEED; 
 		}
 		else if(shapenumber > starChance && shapenumber <= circleChance){
 			shapes = Assets.instance.circle.circleAsset;
 			currentShape(4);
 			//set speed of shape
-			shapeSpeed = Constants.CIRCLE_SPEED; Constants.STAR_SPEED += 0.4f;
+			shapeSpeed = Constants.CIRCLE_SPEED; 
 		}
 		else if(shapenumber > circleChance && shapenumber <= rareChance){
 			shapes = Assets.instance.rare.rareAsset;
 			currentShape(5);
 			//set speed of shape
-			shapeSpeed = Constants.RARE_SPEED; Constants.RARE_SPEED += 0.4f;	
+			shapeSpeed = Constants.RARE_SPEED; 	
 		}
 		else if(shapenumber > rareChance && shapenumber <= legendChance){
 			shapes = Assets.instance.legend.legendAsset;
 			currentShape(6);
 			//set speed of shape
-			shapeSpeed = Constants.LEGEND_SPEED; Constants.LEGEND_SPEED += 0.4f;	
+			shapeSpeed = Constants.LEGEND_SPEED; 	
 		}
 		else if(shapenumber > legendChance && shapenumber <= doubleChance){
 			shapes = Assets.instance.score.scoreAsset;
 			currentShape(7);
 			//set speed of shape
-			shapeSpeed = Constants.SCORE_SPEED; Constants.SCORE_SPEED += 0.4f;	
+			shapeSpeed = Constants.SCORE_SPEED; 
 		}
 		else if(shapenumber > doubleChance && shapenumber <= immuneChance){
 			shapes = Assets.instance.immune.immuneAsset;
 			currentShape(8);
 			//set speed of shape
-			shapeSpeed = Constants.IMMUNE_SPEED; Constants.IMMUNE_SPEED += 0.4f;	
+			shapeSpeed = Constants.IMMUNE_SPEED; 	
 		}
 		}
 	public boolean getSpawnSide(){

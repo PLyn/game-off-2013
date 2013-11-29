@@ -89,11 +89,14 @@ public class WorldRenderer implements Disposable {
 		float y = (float) (Constants.VIEWPORT_HEIGHT - (Constants.VIEWPORT_HEIGHT * 0.06));
 		int spot = Float.toString(worldController.stage.player.velocity).indexOf(".")+ 2;
 		Assets.instance.font.Normal.draw(batch, "Speed Multiplier: X " + Float.toString(worldController.stage.player.velocity).substring(0, spot), x , y);
-		if(worldController.stage.player.hasPowerUp(0)){
+		/*if(worldController.stage.player.hasPowerUp(0)){
 			Assets.instance.font.Normal.draw(batch, "Score Multiplier: + " + worldController.ShapeMultiplier * 2, x , y - 15);
 		}
 		else{
 		Assets.instance.font.Normal.draw(batch, "Score Multiplier: + " + worldController.ShapeMultiplier, x , y - 15);
+		}*/
+		for(int i = 0 ;i <= worldController.stage.player.lives ; i++ ){
+		Assets.instance.font.Normal.draw(batch, "Lives: " + worldController.stage.player.lives, x , y - 15);
 		}
 	}
 	private void RenderToolTip(SpriteBatch batch) {
@@ -129,6 +132,10 @@ public class WorldRenderer implements Disposable {
 			else if(worldController.stage.lastShape == 4){
 				Assets.instance.font.Normal.setColor(Color.RED);
 				scorePhrase = worldController.phrases[7];
+			}
+			if(worldController.stage.lifeUp){
+				Assets.instance.font.Normal.draw(batch, "Life + 1!!", (Constants.VIEWPORT_WIDTH / 2) - 25  , Constants.VIEWPORT_HEIGHT - 100);
+				worldController.stage.lifeUp = false;
 			}
 			Assets.instance.font.Normal.draw(batch, scorePhrase, worldController.stage.lastX - 15, worldController.stage.lastY + 15);
 			Assets.instance.font.Normal.draw(batch, "+ " + Integer.toString(worldController.currentScore), worldController.stage.lastX, 

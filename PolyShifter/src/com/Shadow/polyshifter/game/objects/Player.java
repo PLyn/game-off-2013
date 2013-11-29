@@ -20,7 +20,7 @@ public class Player extends AbstractGameObject{
 	public ParticleEffect left = new ParticleEffect();
 	public ParticleEffect right = new ParticleEffect();
 	
-	
+	public int lives = 3;
 	
 	public boolean isTriangle = false;
 	public boolean isSquare = false;
@@ -117,6 +117,8 @@ public class Player extends AbstractGameObject{
 	@Override
 	public void update(float deltaTime)
 	{
+		if(lives > 3)
+			lives = 3;
 		if(direction == 0){
 			rotation = 0;
 			

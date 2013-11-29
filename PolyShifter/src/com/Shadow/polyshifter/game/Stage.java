@@ -37,7 +37,8 @@ public class Stage {
 	Array<Shape> shapes = new Array<Shape>();
 	public static Array<Float> positions = new Array<Float>();
 	
-	
+	float lifetime = 0;
+	boolean lifeUp = false;
 	
 	public float time = 0;
 	float color = 1;

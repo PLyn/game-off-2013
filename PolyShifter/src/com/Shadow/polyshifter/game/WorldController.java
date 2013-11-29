@@ -34,6 +34,7 @@ public class WorldController  extends InputAdapter{
 	float legendMultiplier = 1;
 	
 	boolean gameOver;
+	boolean lifeUp = false;
 	
 	
 	public String phrase;
@@ -54,10 +55,10 @@ public class WorldController  extends InputAdapter{
 		Constants.PENTAGON_SPEED = 2.5f;
 		Constants.STAR_SPEED = 2.5f;
 		Constants.CIRCLE_SPEED = 2.5f;
-		Constants.RARE_SPEED = 3.5f;
-		Constants.LEGEND_SPEED = 3.5f;
-		Constants.SCORE_SPEED = 3.5f;
-		Constants.IMMUNE_SPEED = 3.5f;
+		Constants.RARE_SPEED = 2.6f;
+		Constants.LEGEND_SPEED = 2.9f;
+		Constants.SCORE_SPEED = 2.7f;
+		Constants.IMMUNE_SPEED = 2.8f;
 	}
 	
 
@@ -261,7 +262,10 @@ public class WorldController  extends InputAdapter{
 			resetBonusMultiplier();
 		}
 		else{
+			stage.player.lives--;
+			if(stage.player.lives <= 0){
 			GameScreen.gameOver = true;
+			}
 		}
 		
 	}
@@ -307,6 +311,8 @@ public class WorldController  extends InputAdapter{
 			ShapeMultiplier += 10;
 			
 			Shape.maxOnScreen += 1;
+			stage.player.lives++;
+			stage.lifeUp = true;
 		}
 	}
 
