@@ -116,19 +116,20 @@ public class Player extends AbstractGameObject{
 	{
 		if(direction == 0){
 			rotation = 0;
-			down.update(deltaTime);
+			
+			
 		}
 		else if(direction == 1){
 			rotation = 90;
-			left.update(deltaTime);
+			
 		}
 		else if(direction == 2){
 			rotation = 180;
-			right.update(deltaTime);
+			
 		}
 		else if(direction == 3){
 			rotation = 270;
-			up.update(deltaTime);
+			
 		}
 		velocity = Constants.PLAYER_SPEED;
 		bounds.set(position.x, position.y, size.x, size.y);
@@ -149,7 +150,10 @@ public class Player extends AbstractGameObject{
 		}
 		
 		dustParticles.update(deltaTime);
-		
+		left.update(deltaTime);
+		down.update(deltaTime);
+		right.update(deltaTime);
+		up.update(deltaTime);
 	}
 	
 	@Override
@@ -162,14 +166,28 @@ public class Player extends AbstractGameObject{
 				rotation, false);
 		dustParticles.setPosition(position.x, position.y);
 		dustParticles.draw(batch);
-		up.setPosition(position.x, position.y - 10);
+		up.setPosition(position.x + 10, position.y - 2);
+		left.setPosition(position.x + 25, position.y + 10);
+		down.setPosition(position.x + 10, position.y + 25);
+		right.setPosition(position.x - 2, position.y + 10);
+		if(direction == 3){
+		
+		
 		up.draw(batch);
-		down.setPosition(position.x, position.y - 10);
+		}
+		if(direction == 0){
+			
+			left.draw(batch);
+		}
+		if(direction == 1){
+		
 		down.draw(batch);
-		left.setPosition(position.x, position.y - 10);
-		left.draw(batch);
-		right.setPosition(position.x, position.y - 10);
+		
+		}
+		if(direction == 2){
+		
 		right.draw(batch);
+		}
 		
 	}
 }

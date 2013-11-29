@@ -126,7 +126,8 @@ timeline2: 0.8
 timeline3: 1.0
 - Options - 
 attached: false
-continuous: falsealigned: false
+continuous: false
+aligned: false
 additive: true
 behind: false
 - Image Path -
