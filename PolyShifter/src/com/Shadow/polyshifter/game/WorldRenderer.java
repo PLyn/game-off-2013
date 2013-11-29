@@ -138,13 +138,14 @@ public class WorldRenderer implements Disposable {
 				Assets.instance.font.Normal.draw(batch, "Life + 1!!", (Constants.VIEWPORT_WIDTH / 2) - 25  , Constants.VIEWPORT_HEIGHT - 100);
 				worldController.stage.lifeUp = false;
 			}
-			if(worldController.wrongfood){
+			if(worldController.stage.wrongfood){
 				Assets.instance.font.Normal.draw(batch, "ouch! - 1 Life", worldController.stage.lastX - 15, worldController.stage.lastY + 15);
+				if(worldController.stage.flash){
 				// Sets the clear screen color to: Cornflower Blue
 				Gdx.gl.glClearColor(1, 0, 0, 0);
 				// Clears the screen
 				Gdx.gl.glClear(GL10.GL_COLOR_BUFFER_BIT);
-				worldController.wrongfood = false;
+				}
 			}
 			else{
 			Assets.instance.font.Normal.draw(batch, scorePhrase, worldController.stage.lastX - 15, worldController.stage.lastY + 15);

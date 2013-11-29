@@ -39,7 +39,7 @@ public class WorldController  extends InputAdapter{
 	
 	boolean gameOver;
 	boolean lifeUp = false;
-	boolean wrongfood = false;
+	
 	
 	
 	public String phrase;
@@ -168,8 +168,9 @@ public class WorldController  extends InputAdapter{
 			{
 				r2.set(shape.bounds);
 				if(r2.overlaps(r1)){
-					phrase = phrases[MathUtils.random(0, 3)];
 					sfx.play();
+					phrase = phrases[MathUtils.random(0, 3)];
+					
 					
 					shape.collected = true;
 					if(stage.player.hasPowerUp(Constants.IMMUNE)){
@@ -281,12 +282,13 @@ public class WorldController  extends InputAdapter{
 		}
 		else{
 			stage.player.lives--;
-			wrongfood = true;
-			bgm.pause();
+			stage.wrongfood = true;
+			stage.flash = true;
 			
 			
 			if(stage.player.lives <= 0){
 			GameScreen.gameOver = true;
+			bgm.pause();
 			}
 		}
 		

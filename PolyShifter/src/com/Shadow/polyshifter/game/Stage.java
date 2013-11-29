@@ -47,7 +47,8 @@ public class Stage {
 	
 	boolean hitTime = false;
 	float hitTimeElapsed = 0.0f;
-	
+	boolean wrongfood = false;
+	boolean flash;
 	public Stage(){
 		init();
 	}
@@ -77,6 +78,12 @@ public class Stage {
 	public void update (float deltaTime) {
 		if(scoreDisplayed){
 			scoreElapsedTime -= deltaTime;
+			if(scoreElapsedTime < 0.4f){
+				flash = false;
+			}
+			if(scoreElapsedTime < 0.0f){
+				wrongfood = false;
+			}
 		}
 			
 		player.update(deltaTime);
@@ -124,6 +131,7 @@ public class Stage {
 
 		if(GameScreen.gameOver){
 			time += deltaTime;
+			
 			//Gdx.app.debug(TAG, Float.toString(time));
 			
 		}

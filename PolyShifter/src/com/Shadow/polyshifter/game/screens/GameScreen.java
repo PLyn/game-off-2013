@@ -1,14 +1,9 @@
 package com.Shadow.polyshifter.game.screens;
 
-import com.Shadow.polyshifter.PolyShifter;
-import com.Shadow.polyshifter.game.Assets;
 import com.Shadow.polyshifter.game.WorldController;
 import com.Shadow.polyshifter.game.WorldRenderer;
-import com.Shadow.polyshifter.utils.Constants;
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.Input.Keys;
-import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.GL10;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
@@ -18,11 +13,6 @@ import com.badlogic.gdx.utils.TimeUtils;
 
 public class GameScreen extends AbstractScreenObject{
 	private static final String TAG = GameScreen.class.getName();
-	
-	private OrthographicCamera camera;
-	private SpriteBatch batch;
-	private Texture texture;
-	private Sprite sprite;
 	
 	int timer = 0;
 	public static boolean gameOver;
