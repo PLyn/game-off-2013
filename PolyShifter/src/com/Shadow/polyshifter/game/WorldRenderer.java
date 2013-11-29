@@ -137,9 +137,14 @@ public class WorldRenderer implements Disposable {
 				Assets.instance.font.Normal.draw(batch, "Life + 1!!", (Constants.VIEWPORT_WIDTH / 2) - 25  , Constants.VIEWPORT_HEIGHT - 100);
 				worldController.stage.lifeUp = false;
 			}
+			if(worldController.wrongfood){
+				Assets.instance.font.Normal.draw(batch, "ouch! - 1 Life", worldController.stage.lastX - 15, worldController.stage.lastY + 15);
+			}
+			else{
 			Assets.instance.font.Normal.draw(batch, scorePhrase, worldController.stage.lastX - 15, worldController.stage.lastY + 15);
 			Assets.instance.font.Normal.draw(batch, "+ " + Integer.toString(worldController.currentScore), worldController.stage.lastX, 
 				worldController.stage.lastY);
+			}
 			Assets.instance.font.Normal.setColor(Color.WHITE);
 			worldController.stage.scoreDisplayed = true;
 			}

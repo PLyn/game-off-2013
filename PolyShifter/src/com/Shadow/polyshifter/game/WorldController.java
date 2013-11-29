@@ -35,6 +35,7 @@ public class WorldController  extends InputAdapter{
 	
 	boolean gameOver;
 	boolean lifeUp = false;
+	boolean wrongfood = false;
 	
 	
 	public String phrase;
@@ -153,7 +154,7 @@ public class WorldController  extends InputAdapter{
 				r2.set(shape.bounds);
 				if(r2.overlaps(r1)){
 					phrase = phrases[MathUtils.random(0, 3)];
-					stage.scoreElapsedTime = 0.5f;
+					
 					shape.collected = true;
 					if(stage.player.hasPowerUp(Constants.IMMUNE)){
 						playerEatAnything(shape);
@@ -161,6 +162,7 @@ public class WorldController  extends InputAdapter{
 					else{
 						playerEatCorrectFood(shape, hero);	
 					}
+					stage.scoreElapsedTime = 0.5f;
 				}
 			}	
 		}
@@ -263,6 +265,7 @@ public class WorldController  extends InputAdapter{
 		}
 		else{
 			stage.player.lives--;
+			wrongfood = true;
 			if(stage.player.lives <= 0){
 			GameScreen.gameOver = true;
 			}
