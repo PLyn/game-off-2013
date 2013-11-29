@@ -54,10 +54,10 @@ public class WorldController  extends InputAdapter{
 		Constants.PENTAGON_SPEED = 2.5f;
 		Constants.STAR_SPEED = 2.5f;
 		Constants.CIRCLE_SPEED = 2.5f;
-		Constants.RARE_SPEED = 5.0f;
-		Constants.LEGEND_SPEED = 6.0f;
-		Constants.SCORE_SPEED = 5.0f;
-		Constants.IMMUNE_SPEED = 5.0f;
+		Constants.RARE_SPEED = 3.5f;
+		Constants.LEGEND_SPEED = 3.5f;
+		Constants.SCORE_SPEED = 3.5f;
+		Constants.IMMUNE_SPEED = 3.5f;
 	}
 	
 
@@ -75,22 +75,26 @@ public class WorldController  extends InputAdapter{
 	}
 	
 	private void limitSpeed() {
-		if(Constants.PLAYER_SPEED > 9.0f)
-			Constants.PLAYER_SPEED = 9.0f;
-		if(Constants.TRIANGLE_SPEED > 9.0f)
-			Constants.TRIANGLE_SPEED = 9.0f;
-		if(Constants.SQUARE_SPEED > 9.0f)
-			Constants.SQUARE_SPEED = 9.0f;
-		if(Constants.PENTAGON_SPEED > 9.0f)
-			Constants.PENTAGON_SPEED = 9.0f;
-		if(Constants.STAR_SPEED > 9.0f)
-			Constants.STAR_SPEED = 9.0f;
-		if(Constants.CIRCLE_SPEED > 9.0f)
-			Constants.CIRCLE_SPEED = 9.0f;
-		if(Constants.RARE_SPEED > 9.0f)
-			Constants.RARE_SPEED = 9.0f;
-		if(Constants.LEGEND_SPEED > 9.0f)
-			Constants.LEGEND_SPEED = 9.0f;
+		if(Constants.PLAYER_SPEED > 7.0f)
+			Constants.PLAYER_SPEED = 7.0f;
+		if(Constants.TRIANGLE_SPEED > 7.0f)
+			Constants.TRIANGLE_SPEED = 7.0f;
+		if(Constants.SQUARE_SPEED > 7.0f)
+			Constants.SQUARE_SPEED = 7.0f;
+		if(Constants.PENTAGON_SPEED > 7.0f)
+			Constants.PENTAGON_SPEED = 7.0f;
+		if(Constants.STAR_SPEED > 7.0f)
+			Constants.STAR_SPEED = 7.0f;
+		if(Constants.CIRCLE_SPEED > 7.0f)
+			Constants.CIRCLE_SPEED = 7.0f;
+		if(Constants.RARE_SPEED > 7.0f)
+			Constants.RARE_SPEED = 7.0f;
+		if(Constants.LEGEND_SPEED > 7.0f)
+			Constants.LEGEND_SPEED = 7.0f;
+		if(Constants.SCORE_SPEED > 7.0f)
+			Constants.SCORE_SPEED = 7.0f;
+		if(Constants.IMMUNE_SPEED > 7.0f)
+			Constants.IMMUNE_SPEED = 7.0f;
 		
 	}
 
@@ -118,6 +122,10 @@ public class WorldController  extends InputAdapter{
 			stage.player.right.start();
 			stage.player.position.x += stage.player.velocity;
 			}
+		if(Gdx.input.isKeyPressed(Keys.ESCAPE)){
+			GameScreen.ispaused = true;
+			
+		}
 	}
 	public void collision()
 	{
@@ -261,37 +269,58 @@ public class WorldController  extends InputAdapter{
 	public void transform(){
 		if(triangleCount >= 10){
 			stage.player.setShape(2);
-			Constants.PLAYER_SPEED += 0.2f;
+			increaseSpeed();
 			resetShapeCount();
 			ShapeMultiplier += 10;
+			Shape.minOnScreen += 1;
+			
 		}
 		else if(squareCount >= 10){
 			stage.player.setShape(3);
-			Constants.PLAYER_SPEED += 0.2f;
+			increaseSpeed();
 			resetShapeCount();
 			ShapeMultiplier += 10;
+			
 			}
 		else if(pentagonCount >= 10){
 			stage.player.setShape(4);
-			Constants.PLAYER_SPEED += 0.2f;
+			increaseSpeed();
 			resetShapeCount();
 			ShapeMultiplier += 10;
+			
+			Shape.maxOnScreen += 1;
 		}
 		else if(starCount >= 10){
 			stage.player.setShape(5);
-			Constants.PLAYER_SPEED += 0.2f;
+			increaseSpeed();
 			resetShapeCount();
 			ShapeMultiplier += 10;
+			
 		}
 		else if(circleCount >= 10){
 			stage.player.setShape(1);
 			stage.shape.probabilityChange -= 30;
 			if(stage.shape.probabilityChange < 40)
 				stage.shape.probabilityChange = 40;
-			Constants.PLAYER_SPEED += 0.2f;
+			increaseSpeed();
 			resetShapeCount();
 			ShapeMultiplier += 10;
+			
+			Shape.maxOnScreen += 1;
 		}
+	}
+
+	public void increaseSpeed(){
+		Constants.PLAYER_SPEED += 0.4f;
+		Constants.CIRCLE_SPEED += 0.4f; 
+		Constants.TRIANGLE_SPEED += 0.4f;
+		Constants.SQUARE_SPEED += 0.4f;
+		Constants.PENTAGON_SPEED += 0.4f;
+		Constants.STAR_SPEED += 0.4f;
+		Constants.RARE_SPEED += 0.4f;
+		Constants.LEGEND_SPEED += 0.4f;
+		Constants.SCORE_SPEED += 0.4f;	
+		Constants.IMMUNE_SPEED += 0.4f;
 	}
 	public void resetShapeCount()
 	{

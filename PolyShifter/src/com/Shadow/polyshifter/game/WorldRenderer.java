@@ -61,6 +61,9 @@ public class WorldRenderer implements Disposable {
 	private void RenderGUI(SpriteBatch batch) {
 		batch.setProjectionMatrix(camera.combined);
 		batch.begin();
+		if(GameScreen.ispaused){
+			Assets.instance.font.Big.draw(batch, "Tap or Click to Resume", Constants.VIEWPORT_WIDTH, Constants.VIEWPORT_HEIGHT);
+		}
 		if(GameScreen.gameOver){
 			RenderGUIGameOver(batch);	
 		}

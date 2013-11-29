@@ -29,7 +29,7 @@ public class Assets implements Disposable, AssetErrorListener {
 	public AssetScore score;
 	public AssetImmune immune;
 	public AssetBack backgrounds;
-	 
+	public AssetEffect effect; 
 	// singleton: prevent instantiation from other classes
 	private Assets () {
 	}
@@ -64,6 +64,15 @@ public class Assets implements Disposable, AssetErrorListener {
 		score = new AssetScore(atlas);
 		immune = new AssetImmune(atlas);
 		backgrounds = new AssetBack(atlas_back);
+		effect = new AssetEffect(atlas);
+	}
+	public class AssetEffect{
+		public final AtlasRegion scoreEffectAsset;
+		public final AtlasRegion immuneEffectAsset;
+		public AssetEffect(TextureAtlas atlas){
+			scoreEffectAsset = atlas.findRegion("scoreeffect");
+			immuneEffectAsset = atlas.findRegion("immuneeffect");
+		}
 	}
 	public class AssetScore{
 		public final AtlasRegion scoreAsset;

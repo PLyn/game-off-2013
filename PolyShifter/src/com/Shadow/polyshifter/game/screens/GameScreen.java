@@ -1,10 +1,13 @@
 package com.Shadow.polyshifter.game.screens;
 
 import com.Shadow.polyshifter.PolyShifter;
+import com.Shadow.polyshifter.game.Assets;
 import com.Shadow.polyshifter.game.WorldController;
 import com.Shadow.polyshifter.game.WorldRenderer;
+import com.Shadow.polyshifter.utils.Constants;
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.Input.Keys;
 import com.badlogic.gdx.graphics.GL10;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
@@ -29,7 +32,7 @@ public class GameScreen extends AbstractScreenObject{
 	private float elapsedTime;
 	float color = (float) 0.5;
 	
-	boolean ispaused;
+	public static boolean ispaused;
 	public GameScreen(Game game) {
 		super(game);
 	}
@@ -59,7 +62,10 @@ public class GameScreen extends AbstractScreenObject{
 		// Render game world to screen
 		worldRenderer.render();
 		
-		
+		if(Gdx.input.justTouched() && ispaused){
+			
+			resume();
+		}
 	}
 
 	@Override

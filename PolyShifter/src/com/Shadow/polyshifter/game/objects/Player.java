@@ -28,7 +28,7 @@ public class Player extends AbstractGameObject{
 	public boolean isStar = false;
 	public boolean isCircle = false;
 	
-	public TextureRegion player;
+	public TextureRegion player , score, immune;
 	
 	//boolean for power ups here
 	boolean hasDoubleScore = false;
@@ -57,6 +57,9 @@ public class Player extends AbstractGameObject{
 		down.load(Gdx.files.internal("particle/down.p"), Gdx.files.internal("particle"));
 		left.load(Gdx.files.internal("particle/left.p"), Gdx.files.internal("particle"));
 		right.load(Gdx.files.internal("particle/right.p"), Gdx.files.internal("particle"));
+		
+		score = Assets.instance.score.scoreAsset;
+		immune = Assets.instance.immune.immuneAsset;
 	}
 
 	public void setShape(int shapenumber){
@@ -170,24 +173,47 @@ public class Player extends AbstractGameObject{
 		left.setPosition(position.x + 25, position.y + 10);
 		down.setPosition(position.x + 10, position.y + 25);
 		right.setPosition(position.x - 2, position.y + 10);
+		
 		if(direction == 3){
-		
-		
+			if(hasPowerUp(0)){
+				batch.draw(score, position.x - 5, position.y + 10 , 10, 10);
+			}
+			if(hasPowerUp(1)){
+				batch.draw(immune, position.x + 20, position.y + 10, 10, 10);
+			}
 		up.draw(batch);
 		}
 		if(direction == 0){
-			
+			if(hasPowerUp(0)){
+				batch.draw(score, position.x + 7, position.y - 5 , 10, 10);
+			}
+			if(hasPowerUp(1)){
+				batch.draw(immune, position.x + 7, position.y + 20, 10, 10);
+			}
 			left.draw(batch);
 		}
 		if(direction == 1){
-		
+			if(hasPowerUp(0)){
+				batch.draw(score, position.x -5, position.y , 10, 10);
+			}
+			if(hasPowerUp(1)){
+				batch.draw(immune, position.x +20, position.y , 10, 10);
+			}
 		down.draw(batch);
 		
 		}
 		if(direction == 2){
-		
+			if(hasPowerUp(0)){
+				batch.draw(score, position.x + 7, position.y + 20, 10, 10);
+			}
+			if(hasPowerUp(1)){
+				batch.draw(immune, position.x + 7, position.y - 5 , 10, 10);
+			}
 		right.draw(batch);
 		}
+		
+		
+			
 		
 	}
 }

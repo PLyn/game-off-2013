@@ -15,6 +15,7 @@ public class GameOverScreen extends AbstractScreenObject{
 	int scoreCount = 0;
 	private OrthographicCamera camera;
 	TextureRegion back;
+	int topScore = 0;
 	
 	public GameOverScreen(Game game) {
 		super(game);
@@ -31,6 +32,7 @@ public class GameOverScreen extends AbstractScreenObject{
 		batch.draw(back, 0, 0, 800, 480);
 		Assets.instance.font.Big.draw(batch, "Game Over!", (Constants.VIEWPORT_WIDTH / 2) - 50, Constants.VIEWPORT_HEIGHT - 140);
 		Assets.instance.font.Normal.draw(batch, "You did not survive but don't worry! there is always next time", (Constants.VIEWPORT_WIDTH / 2) - 170, Constants.VIEWPORT_HEIGHT - 170);
+		
 		
 		if(scoreCount < GameScreen.finalScore ){
 			scoreCount += 20;
@@ -58,6 +60,9 @@ public class GameOverScreen extends AbstractScreenObject{
 		camera = new OrthographicCamera();
 		camera.setToOrtho(false, Constants.VIEWPORT_WIDTH, Constants.VIEWPORT_HEIGHT);
 		back = Assets.instance.backgrounds.end;
+		if( GameScreen.finalScore > topScore){
+			topScore = GameScreen.finalScore;
+		}
 	}
 
 	@Override
