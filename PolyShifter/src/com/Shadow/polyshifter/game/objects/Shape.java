@@ -53,7 +53,7 @@ public class Shape extends AbstractGameObject{
 	
 	public boolean collected;
 	public boolean spawnside;
-	float shapeSpeed = 0;
+	public float shapeSpeed = 0;
 	
 	public TextureRegion shapes;
 	

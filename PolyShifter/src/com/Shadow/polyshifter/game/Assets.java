@@ -32,6 +32,7 @@ public class Assets implements Disposable, AssetErrorListener {
 	public AssetImmune immune;
 	public AssetBack backgrounds;
 	public AssetEffect effect; 
+	public AssetKey keys;
 	//public AssetSound sound;
 	// singleton: prevent instantiation from other classes
 	private Assets () {
@@ -68,15 +69,14 @@ public class Assets implements Disposable, AssetErrorListener {
 		immune = new AssetImmune(atlas);
 		backgrounds = new AssetBack(atlas_back);
 		effect = new AssetEffect(atlas);
+		keys = new AssetKey(atlas);
 	}
-	/*public class AssetSound{
-		public final AtlasRegion sfx;
-		public final AtlasRegion bgm;
-		public AssetSound(TextureAtlas atlas){
-			sfx = Gdx.files.internal("sound/sfx.mp3");
-			bgm = Gdx.files.internal("sound/bgm.mp3");
+	public class AssetKey{
+		public final AtlasRegion key;
+		public AssetKey(TextureAtlas atlas){
+			key = atlas.findRegion("arrowkeys");
 		}
-	}*/
+	}
 	public class AssetEffect{
 		public final AtlasRegion scoreEffectAsset;
 		public final AtlasRegion immuneEffectAsset;

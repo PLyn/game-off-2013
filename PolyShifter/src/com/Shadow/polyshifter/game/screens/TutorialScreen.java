@@ -14,7 +14,7 @@ public class TutorialScreen extends AbstractScreenObject{
 	SpriteBatch batch;
 	OrthographicCamera camera;
 	
-	TextureRegion tri, square, pent, star, cir, rare, leg, score, immune , ingame;
+	TextureRegion tri, square, pent, star, cir, rare, leg, score, immune , ingame, key;
 	
 	float x,y;
 	
@@ -44,7 +44,10 @@ public class TutorialScreen extends AbstractScreenObject{
 		batch.draw(pent, x + 64, y - 110);
 		batch.draw(star, x + 96, y - 110);
 		batch.draw(cir, x + 128, y - 110);
-		Assets.instance.font.Normal.draw(batch, "The different shapes the hero will consume", x + 160, y - 90);
+		Assets.instance.font.Normal.draw(batch, "The different shapes to consume. When you become a Triangle, you will gain 1 Life each time.", x + 160, y - 90);
+		Assets.instance.font.Normal.draw(batch, "Controls", 665, 250);
+		batch.draw(key, 600, 100);
+		
 		//rare
 		batch.draw(rare, x, y - 170);
 		Assets.instance.font.Normal.draw(batch, "Rare shape, gives 5x current score multiplier.", x + 50, y - 150);
@@ -88,8 +91,8 @@ public class TutorialScreen extends AbstractScreenObject{
 		score = Assets.instance.score.scoreAsset;
 		immune = Assets.instance.immune.immuneAsset;
 		ingame = Assets.instance.backgrounds.ingame;
-		
-		x = 100;
+		key = Assets.instance.keys.key;
+		x = 25;
 		y = Constants.VIEWPORT_HEIGHT - 50;
 	}
 

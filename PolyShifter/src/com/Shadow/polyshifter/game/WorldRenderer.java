@@ -3,6 +3,7 @@ package com.Shadow.polyshifter.game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.FPSLogger;
+import com.badlogic.gdx.graphics.GL10;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
@@ -139,6 +140,11 @@ public class WorldRenderer implements Disposable {
 			}
 			if(worldController.wrongfood){
 				Assets.instance.font.Normal.draw(batch, "ouch! - 1 Life", worldController.stage.lastX - 15, worldController.stage.lastY + 15);
+				// Sets the clear screen color to: Cornflower Blue
+				Gdx.gl.glClearColor(1, 0, 0, 0);
+				// Clears the screen
+				Gdx.gl.glClear(GL10.GL_COLOR_BUFFER_BIT);
+				worldController.wrongfood = false;
 			}
 			else{
 			Assets.instance.font.Normal.draw(batch, scorePhrase, worldController.stage.lastX - 15, worldController.stage.lastY + 15);

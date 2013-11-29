@@ -4,19 +4,22 @@ import com.Shadow.polyshifter.game.Assets;
 import com.Shadow.polyshifter.utils.Constants;
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.Preferences;
 import com.badlogic.gdx.graphics.GL10;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 
 public class GameOverScreen extends AbstractScreenObject{
+	private static final String TAG = GameOverScreen.class.getName();
 	SpriteBatch batch;
 	TextureRegion GameOver;
 	int scoreCount = 0;
 	private OrthographicCamera camera;
 	TextureRegion back;
 	int topScore = 0;
-	
+	Preferences prefs;
+	int score;
 	public GameOverScreen(Game game) {
 		super(game);
 		
@@ -29,9 +32,11 @@ public class GameOverScreen extends AbstractScreenObject{
 		Gdx.gl.glClear(GL10.GL_COLOR_BUFFER_BIT);
 		batch.setProjectionMatrix(camera.combined);
 		batch.begin();
-		batch.draw(back, 0, 0, 800, 480);
+		batch.draw(back, 0, 0);
 		Assets.instance.font.Big.draw(batch, "Game Over!", (Constants.VIEWPORT_WIDTH / 2) - 50, Constants.VIEWPORT_HEIGHT - 140);
 		Assets.instance.font.Normal.draw(batch, "You did not survive but don't worry! there is always next time", (Constants.VIEWPORT_WIDTH / 2) - 170, Constants.VIEWPORT_HEIGHT - 170);
+		
+		Assets.instance.font.Big.draw(batch, "Top Score of all time: " + score, (Constants.VIEWPORT_WIDTH / 2) - 100, Constants.VIEWPORT_HEIGHT - 190);
 		
 		
 		if(scoreCount < GameScreen.finalScore ){
@@ -48,6 +53,7 @@ public class GameOverScreen extends AbstractScreenObject{
 			game.setScreen(new MenuScreen(game));
 	}
 
+	
 	@Override
 	public void resize(int width, int height) {
 		// TODO Auto-generated method stub
@@ -60,8 +66,11 @@ public class GameOverScreen extends AbstractScreenObject{
 		camera = new OrthographicCamera();
 		camera.setToOrtho(false, Constants.VIEWPORT_WIDTH, Constants.VIEWPORT_HEIGHT);
 		back = Assets.instance.backgrounds.end;
-		if( GameScreen.finalScore > topScore){
-			topScore = GameScreen.finalScore;
+		prefs = Gdx.app.getPreferences("score");
+		score = prefs.getInteger("score", 0);
+		if(GameScreen.finalScore > score){
+			prefs.putInteger("score", GameScreen.finalScore);
+			score = GameScreen.finalScore;
 		}
 	}
 

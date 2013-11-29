@@ -4,10 +4,14 @@ import com.Shadow.polyshifter.game.objects.Player;
 import com.Shadow.polyshifter.game.objects.Shape;
 import com.Shadow.polyshifter.game.screens.GameScreen;
 import com.Shadow.polyshifter.utils.Constants;
+import com.badlogic.gdx.Audio;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.InputAdapter;
 import com.badlogic.gdx.Application.ApplicationType;
 import com.badlogic.gdx.Input.Keys;
+import com.badlogic.gdx.audio.Music;
+import com.badlogic.gdx.audio.Sound;
+import com.badlogic.gdx.graphics.GL10;
 import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.math.Rectangle;
 
@@ -40,6 +44,12 @@ public class WorldController  extends InputAdapter{
 	
 	public String phrase;
 	public String[] phrases = {"Nice!", "Great!", "Good Job!", "Keep it up!", "Rare!!!", "Legend!!!", "Double Score!", "Invincibility!"};
+	
+	Audio audio = Gdx.audio;
+	Sound sfx;
+	Music bgm;
+	
+	
 
 	public WorldController () {
 		init();
@@ -60,6 +70,11 @@ public class WorldController  extends InputAdapter{
 		Constants.LEGEND_SPEED = 2.9f;
 		Constants.SCORE_SPEED = 2.7f;
 		Constants.IMMUNE_SPEED = 2.8f;
+		
+		sfx = audio.newSound(Gdx.files.internal("sound/sfx.mp3"));
+		bgm = audio.newMusic(Gdx.files.internal("sound/bgm.mp3"));
+		bgm.play();
+		bgm.setLooping(true);
 	}
 	
 
@@ -154,6 +169,7 @@ public class WorldController  extends InputAdapter{
 				r2.set(shape.bounds);
 				if(r2.overlaps(r1)){
 					phrase = phrases[MathUtils.random(0, 3)];
+					sfx.play();
 					
 					shape.collected = true;
 					if(stage.player.hasPowerUp(Constants.IMMUNE)){
@@ -266,6 +282,9 @@ public class WorldController  extends InputAdapter{
 		else{
 			stage.player.lives--;
 			wrongfood = true;
+			bgm.pause();
+			
+			
 			if(stage.player.lives <= 0){
 			GameScreen.gameOver = true;
 			}

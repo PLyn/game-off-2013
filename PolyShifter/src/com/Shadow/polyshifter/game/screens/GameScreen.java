@@ -8,6 +8,7 @@ import com.Shadow.polyshifter.utils.Constants;
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input.Keys;
+import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.GL10;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
@@ -31,6 +32,8 @@ public class GameScreen extends AbstractScreenObject{
 	
 	private float elapsedTime;
 	float color = (float) 0.5;
+	
+	
 	
 	public static boolean ispaused;
 	public GameScreen(Game game) {
@@ -81,6 +84,7 @@ public class GameScreen extends AbstractScreenObject{
 		worldRenderer = new WorldRenderer(worldController);
 		ispaused = false;
 		Gdx.input.setCatchBackKey(true);
+		
 	}
 
 	@Override

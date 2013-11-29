@@ -45,6 +45,9 @@ public class Stage {
 	
 	int lastShape;
 	
+	boolean hitTime = false;
+	float hitTimeElapsed = 0.0f;
+	
 	public Stage(){
 		init();
 	}
