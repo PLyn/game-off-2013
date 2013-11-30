@@ -21,7 +21,7 @@ public class PolyShifter extends Game {
 	@Override
 	public void create() {
 		// Set Libgdx log level to DEBUG to see errors
-		Gdx.app.setLogLevel(Application.LOG_DEBUG);
+		Gdx.app.setLogLevel(Application.LOG_NONE);
 		Assets.instance.init(new AssetManager());
 		setScreen(new MenuScreen(this));
 	}
