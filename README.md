@@ -1,6 +1,6 @@
 ## Poly Shifter
 
-	A small game where you as a space alien has become stranded and must eat certain amounts of shapes to transform into other shapes to stay alive but if he eats the wrong shape, it will kill him eventually!
+A small game where you as a space alien has become stranded and must eat certain amounts of shapes to transform into other shapes to stay alive but if he eats the wrong shape, it will kill him eventually!
 
 ## Open Source Projects
 
