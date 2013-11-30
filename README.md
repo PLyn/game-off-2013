@@ -9,4 +9,4 @@ Open source Assets from OpenGameArt.org
 
 Screenshot of game
 
-![Poly Shifter Screenshot](http://imgur.com/yKDr7uZ)
+![Poly Shifter Screenshot](http://i.imgur.com/yKDr7uZ.png)
